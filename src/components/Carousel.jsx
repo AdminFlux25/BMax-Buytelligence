@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import slide1 from "../assets/BMax-Carousel/slide1.jpg";
-import slide2 from "../assets/BMax-Carousel/slide2.jpg";
-import slide3 from "../assets/BMax-Carousel/slide3.jpg";
+import slide1 from "../assets/BMax-Carousel/Slide1.jpg";
+import slide2 from "../assets/BMax-Carousel/Slide2.jpg";
+import slide3 from "../assets/BMax-Carousel/Slide3.jpg";
 
 const slides = [
   {
