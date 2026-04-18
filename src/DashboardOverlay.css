@@ -1,0 +1,188 @@
+/* Full-page overlay fade */
+.overlay-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: overlayFade 0.6s ease-out;
+  z-index: 9999;
+}
+
+/* Slow scale + float animation */
+.overlay-container {
+  width: 90%;
+  max-width: 1200px;
+  background: #1a1a1a;
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 0 24px rgba(255,80,80,0.3);
+  animation: overlayFloat 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Background fade */
+@keyframes overlayFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Smooth float-in animation */
+@keyframes overlayFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.92);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(0px) scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Header */
+.overlay-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+/* 2×2 grid */
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+/* Panel card */
+.panel-card {
+  background: #222;
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(255,80,80,0.15);
+}
+
+/* 3D Pie Chart */
+.pie-chart {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin: 12px auto;
+  position: relative;
+  background: conic-gradient(
+    #ff5050 0deg 140deg,
+    #ffcc33 140deg 240deg,
+    #3399ff 240deg 360deg
+  );
+  box-shadow:
+    inset 0 0 18px rgba(255,255,255,0.15),
+    0 8px 18px rgba(0,0,0,0.4),
+    0 12px 24px rgba(255,80,80,0.25);
+  transform: perspective(600px) rotateX(18deg);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover lift effect */
+.pie-chart:hover {
+  transform: perspective(600px) rotateX(10deg) scale(1.03);
+  box-shadow:
+    inset 0 0 22px rgba(255,255,255,0.2),
+    0 12px 22px rgba(0,0,0,0.45),
+    0 16px 28px rgba(255,80,80,0.35);
+}
+
+
+.legend {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.red { background: #ff5050; }
+.yellow { background: #ffcc33; }
+.blue { background: #3399ff; }
+
+/* Bar graph */
+.bar-graph {
+  display: flex;
+  gap: 10px;
+  height: 160px;
+  align-items: flex-end;
+}
+
+.bar {
+  width: 18%;
+  background: linear-gradient(180deg, #ff5050, #992222);
+  border-radius: 8px;
+  position: relative;
+}
+
+.bar label {
+  position: absolute;
+  bottom: -20px;
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Line graph */
+.line-graph {
+  height: 160px;
+  position: relative;
+}
+
+.trend-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ff5050;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff5050;
+}
+
+.trend-line {
+  position: absolute;
+  inset: 0;
+  border-bottom: 2px solid rgba(255,80,80,0.4);
+}
+
+/* Merchant list */
+.merchant-list {
+  margin-top: 12px;
+}
+
+.merchant-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}

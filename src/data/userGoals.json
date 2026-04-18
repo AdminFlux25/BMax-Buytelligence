@@ -1,0 +1,13 @@
+{
+  "budgetLimit": 250,
+  "goals": [
+    {
+      "name": "Healthy Living",
+      "conflictTag": "high-sugar"
+    },
+    {
+      "name": "Eco Friendly",
+      "conflictTag": "non-eco"
+    }
+  ]
+}

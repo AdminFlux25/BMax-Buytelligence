@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Baby Lotion",
+    "category": "Baby Care",
+    "price": 12.5,
+    "date": "2026-03-01",
+    "frequency": 4,
+    "nextBuyDate": "2026-04-01"
+  },
+  {
+    "id": 2,
+    "name": "Whole Milk 2L",
+    "category": "Groceries",
+    "price": 3.8,
+    "date": "2026-03-20",
+    "frequency": 6,
+    "nextBuyDate": "2026-04-05"
+  },
+  {
+    "id": 3,
+    "name": "Laundry Detergent",
+    "category": "Household",
+    "price": 14.0,
+    "date": "2026-02-15",
+    "frequency": 2,
+    "nextBuyDate": "2026-04-15"
+  }
+]

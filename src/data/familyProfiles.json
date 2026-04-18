@@ -1,0 +1,26 @@
+{
+  "Hiro": {
+    "recentOrders": [
+      { "name": "Baby Lotion", "category": "Baby Care" },
+      { "name": "Wet Wipes", "category": "Baby Care" }
+    ]
+  },
+  "Dad": {
+    "recentOrders": [
+      { "name": "Protein Powder", "category": "Health" },
+      { "name": "Shaving Foam", "category": "Personal Care" }
+    ]
+  },
+  "Mom": {
+    "recentOrders": [
+      { "name": "Organic Tea", "category": "Groceries" },
+      { "name": "Face Serum", "category": "Beauty" }
+    ]
+  },
+  "Kids": {
+    "recentOrders": [
+      { "name": "Chocolate Cereal", "category": "Snacks" },
+      { "name": "Coloring Pencils", "category": "Stationery" }
+    ]
+  }
+}

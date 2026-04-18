@@ -1,0 +1,42 @@
+.copilot-bubble {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid rgba(255,80,80,0.6);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  /* Glow + pulse animation */
+  box-shadow: 0 0 18px rgba(255,60,60,0.45);
+  animation: baymaxPulse 2.4s ease-in-out infinite;
+}
+
+.copilot-bubble img {
+  width: 48px;
+  height: 48px;
+}
+
+/* Pulse animation */
+@keyframes baymaxPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(255,60,60,0.35);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 26px rgba(255,60,60,0.55);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 14px rgba(255,60,60,0.35);
+  }
+}

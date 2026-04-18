@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Baby Lotion",
+    "category": "Baby Care",
+    "price": 12.5,
+    "rating": 4,
+    "tags": ["baby", "lotion", "skin", "care"],
+    "image": "/images/baby-lotion.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Whole Milk 2L",
+    "category": "Groceries",
+    "price": 3.8,
+    "rating": 5,
+    "tags": ["milk", "dairy", "groceries"],
+    "image": "/images/milk.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Laundry Detergent",
+    "category": "Household",
+    "price": 14.0,
+    "rating": 4,
+    "tags": ["detergent", "cleaning", "household"],
+    "image": "/images/detergent.jpg"
+  }
+]

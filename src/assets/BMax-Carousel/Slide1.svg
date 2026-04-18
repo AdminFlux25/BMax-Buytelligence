@@ -1,0 +1,71 @@
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <rect width="1200" height="300" fill="#f5f5f7"/>
+
+  <!-- Cute Chubby Robot -->
+  <g transform="translate(260,150)">
+    <!-- Body -->
+    <rect x="-80" y="-70" width="160" height="160" rx="50" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+
+    <!-- Head -->
+    <rect x="-60" y="-120" width="120" height="80" rx="40" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+
+    <!-- Eyes -->
+    <circle cx="-25" cy="-85" r="8" fill="#22252b"/>
+    <circle cx="25" cy="-85" r="8" fill="#22252b"/>
+
+    <!-- Eye shine -->
+    <circle cx="-22" cy="-88" r="3" fill="#ffffff" opacity="0.7"/>
+    <circle cx="28" cy="-88" r="3" fill="#ffffff" opacity="0.7"/>
+
+    <!-- Mouth -->
+    <line x1="-15" y1="-70" x2="15" y2="-70" stroke="#b0b0b8" stroke-width="3" stroke-linecap="round"/>
+
+    <!-- Arms -->
+    <path d="M -80 -20 C -110 -10 -110 20 -90 30" stroke="#d4d4dd" stroke-width="8" stroke-linecap="round" fill="none"/>
+    <path d="M 80 -20 C 110 -10 110 20 90 30" stroke="#d4d4dd" stroke-width="8" stroke-linecap="round" fill="none"/>
+
+    <!-- Hands -->
+    <circle cx="-90" cy="32" r="10" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+    <circle cx="90" cy="32" r="10" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+
+    <!-- Legs -->
+    <rect x="-40" y="60" width="26" height="40" rx="10" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+    <rect x="14" y="60" width="26" height="40" rx="10" fill="#ffffff" stroke="#d4d4dd" stroke-width="3"/>
+
+    <!-- Feet -->
+    <ellipse cx="-27" cy="104" rx="22" ry="8" fill="#e4e4ec"/>
+    <ellipse cx="27" cy="104" rx="22" ry="8" fill="#e4e4ec"/>
+
+    <!-- Antenna -->
+    <line x1="0" y1="-140" x2="0" y2="-125" stroke="#d4d4dd" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="0" cy="-145" r="7" fill="#ff5b5b"/>
+    <circle cx="0" cy="-145" r="11" fill="#ff5b5b" opacity="0.25"/>
+  </g>
+
+  <!-- Floating icons -->
+  <g opacity="0.35">
+    <rect x="120" y="40" width="40" height="40" rx="8" fill="#ffffff" stroke="#e0e0ea"/>
+    <rect x="170" y="70" width="32" height="32" rx="8" fill="#ffffff" stroke="#e0e0ea"/>
+    <circle cx="160" cy="140" r="18" fill="#ffffff" stroke="#e0e0ea"/>
+  </g>
+
+  <!-- Text -->
+  <g transform="translate(650,110)">
+    <text x="0" y="0" fill="#22252b" font-size="26" font-weight="600" font-family="Segoe UI, sans-serif">
+      Your organization is adopting
+    </text>
+
+    <text x="0" y="40" fill="#22252b" font-size="26" font-weight="600" font-family="Segoe UI, sans-serif">
+      AI rapidly.
+    </text>
+
+    <line x1="0" y1="46" x2="120" y2="46" stroke="#ff5b5b" stroke-width="3" stroke-linecap="round"/>
+
+    <text x="0" y="90" fill="#4a4d57" font-size="20" font-family="Segoe UI, sans-serif">
+      I will… attempt to keep up.
+    </text>
+  </g>
+
+</svg>

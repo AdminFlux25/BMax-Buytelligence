@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "name": "Baby Lotion",
+    "stock": 2
+  },
+  {
+    "id": 2,
+    "name": "Whole Milk 2L",
+    "stock": 1
+  },
+  {
+    "id": 3,
+    "name": "Laundry Detergent",
+    "stock": 8
+  }
+]

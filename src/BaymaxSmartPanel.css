@@ -1,0 +1,607 @@
+/* Futuristic AI Panel */
+.baymax-ai-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 28px;
+
+   width: 320px;              /* NEW: wider, premium */
+  max-width: 340px;          /* NEW: prevents over-expansion */
+
+  background: rgba(10, 10, 10, 0.55);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+
+  border-right: 2px solid rgba(255, 60, 60, 0.4);
+  box-shadow: 6px 0 30px rgba(255, 60, 60, 0.15);
+
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 480px) {
+  .baymax-ai-panel {
+    width: 100%;             /* NEW: full width on mobile */
+    max-width: none;
+    padding: 20px;           /* slightly tighter padding */
+  }
+}
+
+/* Animated neon border */
+.baymax-ai-panel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #ff4d4d, #ff1a1a, #ff4d4d);
+  animation: neonFlow 4s linear infinite;
+}
+
+@keyframes neonFlow {
+  0% { filter: blur(4px); opacity: 0.6; }
+  50% { filter: blur(6px); opacity: 1; }
+  100% { filter: blur(4px); opacity: 0.6; }
+}
+
+/* Header */
+.baymax-ai-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 80, 80, 0.25);
+}
+
+/* Avatar frame with glow */
+.baymax-avatar-frame {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.baymax-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: white;
+  padding: 8px;
+  z-index: 2;
+  position: relative;
+}
+
+.avatar-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,60,60,0.6), rgba(255,60,60,0));
+  filter: blur(12px);
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
+}
+
+/* Text */
+.baymax-ai-text h3 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #ff6b6b;
+  text-shadow: 0 0 8px rgba(255, 60, 60, 0.6);
+}
+
+.baymax-ai-text p {
+  margin: 0;
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* Body */
+.baymax-ai-body {
+  margin-top: 24px;
+  font-size: 15px;
+  color: #ddd;
+  line-height: 1.7;
+
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  padding: 18px;
+
+  box-shadow: inset 0 0 18px rgba(255, 60, 60, 0.08);
+}
+
+/* Button */
+.baymax-ai-btn {
+  background: linear-gradient(90deg, #ff3b3b, #ff6b6b);
+  color: white;
+  border: none;
+  border-radius: 28px;
+  padding: 12px 22px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  box-shadow: 0 4px 16px rgba(255, 60, 60, 0.45);
+  transition: all 0.3s ease;
+}
+
+.baymax-ai-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 22px rgba(255, 60, 60, 0.6);
+}
+/* Hologram Section */
+.baymax-ai-holo-section {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.holo-title {
+  color: #ff6b6b;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(255, 60, 60, 0.6);
+  margin-bottom: 4px;
+}
+
+/* Hologram Card */
+.holo-card {
+  position: relative;
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+
+  box-shadow: 
+    0 0 18px rgba(255, 60, 60, 0.18),
+    inset 0 0 12px rgba(255, 60, 60, 0.08);
+
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+
+  color: #eee;
+  font-family: var(--font-title);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+  overflow: hidden;
+
+    min-height: 90px;
+  max-height: 110px;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  overflow: hidden;
+}
+
+.holo-card-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 480px) {
+  .holo-card {
+    min-height: 80px;
+    max-height: 90px;
+    padding: 12px;
+  }
+}
+
+/* Hover: hologram floats upward */
+.holo-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 
+    0 0 26px rgba(255, 60, 60, 0.35),
+    inset 0 0 18px rgba(255, 60, 60, 0.12);
+}
+/* Hologram shine */
+.holo-card::after {
+  content: "";
+  position: absolute;
+  top: -120%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 80, 80, 0.25),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: holoShine 4s infinite ease-in-out;
+}
+/* Animated hologram glow layer */
+.holo-glow {
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(255,60,60,0.25), transparent 70%);
+  animation: holoPulse 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes holoPulse {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+@keyframes holoShine {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  50% { transform: translateX(100%) rotate(25deg); }
+  100% { transform: translateX(-100%) rotate(25deg); }
+}
+
+/* Copilot AI Console */
+.baymax-ai-copilot {
+  margin-top: 24px;
+  height: 320px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 80, 80, 0.25);
+  box-shadow: 0 0 22px rgba(255, 60, 60, 0.18),
+              inset 0 0 14px rgba(255, 60, 60, 0.08);
+
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Hologram glow behind iframe */
+.baymax-ai-copilot::before {
+  content: "";
+  position: absolute;
+  top: -40%;
+  left: -40%;
+  width: 180%;
+  height: 180%;
+  background: radial-gradient(circle, rgba(255,60,60,0.18), transparent 70%);
+  animation: holoPulse 4s infinite ease-in-out;
+  pointer-events: none;
+}
+
+/* Iframe itself */
+.copilot-frame {
+  width: 100%;
+  height: 100%;
+  border: none;
+  z-index: 2;
+  position: relative;
+  border-radius: 16px;
+}
+
+.copilot-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none; /* allow background to stay interactive visually */
+}
+
+.copilot-window {
+  position: absolute;
+  right: 20px;
+  top: 80px;
+  width: 380px;
+  height: 80vh;
+
+  background: rgba(20,20,20,0.92);
+  border: 1px solid rgba(255,80,80,0.4);
+  border-radius: 16px;
+  box-shadow: 0 0 30px rgba(255,60,60,0.25);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  animation: slideIn 0.35s ease;
+
+  pointer-events: auto; /* overlay itself is clickable */
+}
+
+.copilot-header {
+  padding: 12px 16px;
+  background: rgba(255,80,80,0.1);
+  border-bottom: 1px solid rgba(255,80,80,0.25);
+  color: #ff6b6b;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.copilot-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* 3D Baymax Orb Button */
+.baymax-3d-orb {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+
+  /* 3D shading */
+  background: radial-gradient(circle at 30% 30%, #ffffff, #dcdcdc, #c8c8c8);
+
+  /* Glow */
+  box-shadow:
+    0 0 25px rgba(255, 60, 60, 0.45),
+    inset 0 0 12px rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  margin: 20px auto 0;
+
+  /* Floating animation */
+  animation: baymaxFloat 3s ease-in-out infinite;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.baymax-3d-orb:hover {
+  transform: translateY(-6px) scale(1.08);
+  box-shadow:
+    0 0 35px rgba(255, 60, 60, 0.6),
+    inset 0 0 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Baymax eyes */
+.baymax-eyes {
+  width: 40px;
+  height: 8px;
+  background: black;
+  border-radius: 4px;
+  position: relative;
+}
+
+/* Eye dots */
+.baymax-eyes::before,
+.baymax-eyes::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: black;
+  border-radius: 50%;
+  top: -1px;
+}
+
+.baymax-eyes::before {
+  left: -12px;
+}
+
+.baymax-eyes::after {
+  right: -12px;
+}
+
+/* Eyelid overlay */
+.baymax-eyelid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: white;
+  border-radius: 4px;
+  animation: baymaxBlink 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Blink animation */
+@keyframes baymaxBlink {
+  0%, 92%, 100% {
+    height: 0%;
+  }
+  95% {
+    height: 100%;
+  }
+}
+
+
+
+/* Floating animation */
+@keyframes baymaxFloat {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.profile-switcher {
+  position: relative;
+  display: inline-block;
+}
+
+.profile-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255,80,80,0.2);
+  border: 1px solid rgba(255,80,80,0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.profile-icon:hover {
+  background: rgba(255,80,80,0.35);
+}
+
+.profile-menu {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background: rgba(20,20,20,0.95);
+  border: 1px solid rgba(255,80,80,0.3);
+  border-radius: 10px;
+  padding: 10px;
+  width: 140px;
+  display: none;
+  box-shadow: 0 0 20px rgba(255,60,60,0.3);
+}
+
+.profile-switcher:hover .profile-menu {
+  display: block;
+}
+
+.profile-menu p {
+  color: #ff8080;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
+.profile-menu button {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: white;
+  padding: 6px 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s ease;
+}
+
+.profile-menu button:hover {
+  color: #ff6b6b;
+}
+.alert-toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  animation: fadeIn 0.4s ease;
+  margin-top: 10px;
+  backdrop-filter: blur(6px);
+}
+
+.alert-toast.warning {
+  background: rgba(255, 180, 0, 0.8);
+}
+
+.alert-toast.info {
+  background: rgba(0, 150, 255, 0.8);
+}
+
+.alert-toast.danger {
+  background: rgba(255, 60, 60, 0.85);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.alert-badge {
+  background: #ff4d4d;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  margin-left: 10px;
+}
+
+.holo-card.attention {
+  border: 1px solid rgba(255, 80, 80, 1);
+  box-shadow: 0 0 16px rgba(255, 80, 80, 0.6);
+  animation: attentionPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes attentionPulse {
+  0% {
+    box-shadow: 0 0 12px rgba(255, 80, 80, 0.6);
+    border-color: rgba(255, 80, 80, 1);
+  }
+  50% {
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 12px rgba(255, 80, 80, 0.6);
+    border-color: rgba(255, 80, 80, 1);
+  }
+}
+
+/* Slide-in animation for the loaded panel */
+.panel-slide-in {
+  animation: panelSlideIn 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes panelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Placeholder to prevent layout jump */
+.welcome-placeholder {
+  height: 22px;
+  opacity: 0;
+}
+
+/* Name reveal */
+.welcome-text {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+  opacity: 0;
+  animation: fadeInName 300ms ease-out forwards;
+}
+
+@keyframes fadeInName {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
