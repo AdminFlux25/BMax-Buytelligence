@@ -97,12 +97,12 @@ const [showDashboard, setShowDashboard] = useState(false);
       </main>
           {/* <AIAssistant /> */}
           <CopilotOverlay 
-  open={showCopilot} 
-  onClose={() => {
-    setShowCopilot(false);
-    setShowBubble(true);
-  }} 
-/>
+            open={showCopilot} 
+            onClose={() => {
+              setShowCopilot(false);
+              setShowBubble(true);
+            }} 
+          />
 <CopilotBubble 
   open={showBubble} 
   onClick={() => {
