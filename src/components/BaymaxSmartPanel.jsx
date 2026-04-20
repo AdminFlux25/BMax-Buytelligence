@@ -8,6 +8,8 @@ export default function BaymaxSmartPanel({ onActivate,onOpenDashboard  }) {
       const [profileReady, setProfileReady] = useState(false);
   const [showName, setShowName] = useState(false);
 const [showDashboard, setShowDashboard] = useState(false);
+const [open, setOpen] = useState(false);
+
   useEffect(() => {
     if (profileReady) {
       // Micro delay before showing the name
@@ -36,19 +38,33 @@ const [showDashboard, setShowDashboard] = useState(false);
               <div className="welcome-placeholder"></div>
             )}
         </div>
-         <div className="profile-switcher">
-          <div className="profile-icon">
-            <span>👤</span>
-          </div>
+        
+<div className="profile-switcher">
+  <button className="profile-button" onClick={() => setOpen(true)}>
+    👤
+  </button>
 
-          <div className="profile-menu">
-            <p>Switch Profile</p>
-            <button onClick={() => engine.runCapability("familyProfiles", { profile: "Hiro" })}>Hiro</button>
-            <button onClick={() => engine.runCapability("familyProfiles", { profile: "Dad" })}>Dad</button>
-            <button onClick={() => engine.runCapability("familyProfiles", { profile: "Mom" })}>Mom</button>
-            <button onClick={() => engine.runCapability("familyProfiles", { profile: "Kids" })}>Kids</button>
-          </div>
+  {open && (
+    <div className="profile-overlay" onClick={() => setOpen(false)}>
+      <div className="profile-modal" onClick={(e) => e.stopPropagation()}>
+        <div className="profile-title">Choose Your Profile</div>
+
+        <div className="profile-list">
+          <div className="profile-item">Tadashi</div>
+          <div className="profile-item">GoGo </div>
+          <div className="profile-item">Wasabi</div>
         </div>
+
+        <div className="profile-close" onClick={() => setOpen(false)}>
+          Close
+        </div>
+      </div>
+    </div>
+  )}
+</div>
+
+
+        
       </div>
       <div className="baymax-ai-body">
         <div className="baymax-ai-holo-section">
