@@ -12,16 +12,23 @@ import CopilotBubble from "./components/CopilotBubble";
 import Carousel from "./components/Carousel";
 import CategoryGrid from "./components/CategoryGrid";
 import DashboardOverlay from "./components/DashboardOverlay";
+import AgentModal from "./components/AgentModal";
+import BaymaxThinking from "./components/BaymaxThinking";
 
 export default function App() {
   const { totalQty } = useCart();
   const [openCart, setOpenCart] = useState(false);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All");
-  
+
   const [showCopilot, setShowCopilot] = useState(false);
   const [showBubble, setShowBubble] = useState(false);
-const [showDashboard, setShowDashboard] = useState(false);
+  const [showDashboard, setShowDashboard] = useState(false);
+  const [agentModalOpen, setAgentModalOpen] = useState(false);
+  const [agentData, setAgentData] = useState(null);
+  const [isThinking, setIsThinking] = useState(false);
+
+
 
 
   const categories = useMemo(() => {
@@ -39,6 +46,7 @@ const [showDashboard, setShowDashboard] = useState(false);
       return matchCategory && matchQuery;
     });
   }, [query, category]);
+
 
   return (
     <div className="page">
@@ -74,45 +82,60 @@ const [showDashboard, setShowDashboard] = useState(false);
         </div>
       </header>
       <div className="main-layout">
-  <BaymaxSmartPanel onActivate={() => setShowCopilot(true)} onOpenDashboard={() => setShowDashboard(true)}/>
-           {showDashboard && (
-        <DashboardOverlay onClose={() => setShowDashboard(false)} />
-      )}
-      <main className="main">
-
-        <Carousel />
-        <CategoryGrid />
-        <div className="toolbar">
-          <h1>Products</h1>
-          <span className="muted">
-            Showing <b>{filtered.length}</b> items
-          </span>
-        </div>
-
-        <section className="grid">
-          {filtered.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </section>
-      </main>
-          {/* <AIAssistant /> */}
-          <CopilotOverlay 
-            open={showCopilot} 
-            onClose={() => {
-              setShowCopilot(false);
-              setShowBubble(true);
-            }} 
-          />
-<CopilotBubble 
-  open={showBubble} 
-  onClick={() => {
-    setShowBubble(false);
-    setShowCopilot(true);
-  }} 
+        <BaymaxSmartPanel onActivate={() => setShowCopilot(true)} onOpenDashboard={() => setShowDashboard(true)}  onAgentResponse={(data) => {
+    setIsThinking(false);
+    setAgentData(data);
+    setAgentModalOpen(true);
+  }}
+  setThinking={setIsThinking}/>
+        {showDashboard && (
+          <DashboardOverlay onClose={() => setShowDashboard(false)} />
+        )}
+        <AgentModal
+  open={agentModalOpen}
+  data={agentData}
+  onClose={() => setAgentModalOpen(false)}
+  onAddCart={(items) => {
+    items.forEach(addToCart);
+    setAgentModalOpen(false);
+  }}
 />
+{isThinking && <BaymaxThinking />}
+        <main className="main">
+
+          <Carousel />
+          <CategoryGrid />
+          <div className="toolbar">
+            <h1>Products</h1>
+            <span className="muted">
+              Showing <b>{filtered.length}</b> items
+            </span>
+          </div>
+
+          <section className="grid">
+            {filtered.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </section>
+        </main>
+        {/* <AIAssistant /> */}
+        <CopilotOverlay
+          open={showCopilot}
+          onClose={() => {
+            setShowCopilot(false);
+            setShowBubble(true);
+          }}
+        />
+        <CopilotBubble
+          open={showBubble}
+          onClick={() => {
+            setShowBubble(false);
+            setShowCopilot(true);
+          }}
+        />
 
 
-        </div> 
+      </div>
       <footer className="footer">
         <span>© {new Date().getFullYear()} AI‑powered demo. The hype is real, the store is not.</span>
       </footer>

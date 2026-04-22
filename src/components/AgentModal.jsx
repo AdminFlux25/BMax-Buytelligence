@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import { useCart } from "../context/CartContext";
-
-export default function SmartRecommendations(open, data, onClose, onAddCart) {
+export default function AgentModal({ open, data, onClose, onAddCart }) {
   if (!open) return null;
 
-  const hasCartItems = data?.cartItems && data.cartItems.length > 0;
+  const hasCartItems = data?.cartItems?.length > 0;
 
   return (
     <div className="agent-overlay" onClick={onClose}>
